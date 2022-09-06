@@ -183,14 +183,14 @@ module.exports = xcaa = async(xcaa, m, chatUpdate, store) => {
   if (m.message && m.message.protocolMessage && m.message.protocolMessage.type == 0) {
   let key = m.message.protocolMessage.key
   let msg = await xcaa.serializeM(await store.loadMessage(key.remoteJid, [m.key.id]))
-  let teks = `╭「 *Anti Delete* 」\n├ User : @${msg.sender.split("@")[0]}\n├ Date : ${moment(msg.messageTimestamp * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")} WIB\n└ Type : ${msg.mtype}`
+  let teks = `╔════⧫「 *Anti Delete* 」\n║ User : @${msg.sender.split("@")[0]}\n║ Date : ${moment(msg.messageTimestamp * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")} WIB\n╚════⧫Type : ${msg.mtype}`
   xcaa.sendText(m.chat, teks, msg, { mentions: [msg.sender] })
   await xcaa.relayMessage(m.chat, msg.message, { messageId: msg.id })
   }
 
 //Anti ViewOnce Otomatis
   if (m.isGroup && m.mtype == 'viewOnceMessage') {
-  let teks = `╭「 *Anti ViewOnce* 」\n├ *Name* : ${pushname}\n├ *User* : @${m.sender.split("@")[0]}\n├ *Clock* : ${wib} WIB\n└ *Message* : ${m.mtype}`
+  let teks = `╔════⧫「 *Anti ViewOnce* 」\n║ *Name* : ${pushname}\n║ *User* : @${m.sender.split("@")[0]}\n║ *Clock* : ${wib} WIB\n╚════⧫*Message* : ${m.mtype}`
   xcaa.sendMessage(m.chat, { text: teks, mentions: [m.sender] }, { quoted: m })
   await sleep(500)
   m.copyNForward(m.chat, true, {readViewOnce: true}, {quoted: m}).catch(_ => m.reply('Mungkin dah pernah dibuka bot'))
@@ -262,336 +262,348 @@ switch(command) {
 
 case 'menu': case 'help': {
   try {
-  let menunya = `╭「 *INFO BOT* 」
-├ Name : RoF3X-Bot
-├ Author : FxSx
-├ Library : Bailyes-MD
-├ Language : JavaScript
-├ Device : Android
-├ User : ${userB.length}
-├ Date : ${date}
-├ Wib : ${wib}
-├ Wita : ${wita}
-└ Wit : ${wit}
+  let menunya = `╔════⧫「 *INFO BOT* 」
+║ Name : XwanSano
+║ Author : Alwi Xwan
+║ Library : Bailyes-MD
+║ Language : JavaScript
+║ Device : Pannel
+║ User : ${userB.length}
+║ Date : ${date}
+║ Wib : ${wib}
+║ Wita : ${wita}
+║ Wit : ${wit}
+╚════⧫
 ${readmore}
-╭「 *OTHER* 」
-├ ${prefix}delete <del>
-├ ${prefix}owner <pemilik>
-├ ${prefix}ping <info>
-├ ${prefix}rules <kebijakan>
-├ ${prefix}listpc <list chat>
-├ ${prefix}listgc <list chat gc>
-├ ${prefix}request <teks>
-├ ${prefix}report <teks>
-├ ${prefix}afk <teks>
-├ ${prefix}bahasa <code bahasa>
-└ ${prefix}thanksto <support>
+╔════⧫「 *OTHER* 」
+║ ${prefix}delete <del>
+║ ${prefix}owner <pemilik>
+║ ${prefix}ping <info>
+║ ${prefix}rules <kebijakan>
+║ ${prefix}listpc <list chat>
+║ ${prefix}listgc <list chat gc>
+║ ${prefix}request <teks>
+║ ${prefix}report <teks>
+║ ${prefix}afk <teks>
+║ ${prefix}bahasa <code bahasa>
+║ ${prefix}thanksto <support>
+╚════⧫
 
-╭「 *ISLAMIC* 」
-├ ${prefix}kisah-nabi <list>
-├ ${prefix}iqra <teks>
-├ ${prefix}hadist <teks>
-├ ${prefix}juzamma <teks>
-├ ${prefix}alquran <teks>
-├ ${prefix}tafsirsurah <teks>
-├ ${prefix}listsurah <list>
-├ ${prefix}niatsholat <teks>
-├ ${prefix}jadwalsholat <teks>
-└ ${prefix}asmaulhusna <number>
+╔════⧫「 *ISLAMIC* 」
+║ ${prefix}kisah-nabi <list>
+║ ${prefix}iqra <teks>
+║ ${prefix}hadist <teks>
+║ ${prefix}juzamma <teks>
+║ ${prefix}alquran <teks>
+║ ${prefix}tafsirsurah <teks>
+║ ${prefix}listsurah <list>
+║ ${prefix}niatsholat <teks>
+║ ${prefix}jadwalsholat <teks>
+║ ${prefix}asmaulhusna <number>
+╚════⧫
 
-╭「 *RANDOM* 」
-├ ${prefix}jodohku <random>
-├ ${prefix}jadian <random>
-├ ${prefix}bebangc <random>
-├ ${prefix}lonte <random>
-├ ${prefix}yatim <random>
-├ ${prefix}ganteng <random>
-├ ${prefix}cantik <random>
-├ ${prefix}apakah <teks>
-├ ${prefix}kapankah <teks>
-├ ${prefix}bisakah <teks>
-├ ${prefix}katadilan <random>
-├ ${prefix}truth <random>
-├ ${prefix}dare <random>
-├ ${prefix}couple <random>
-├ ${prefix}pinterest <teks>
-├ ${prefix}google <teks>
-├ ${prefix}gimage <teks>
-├ ${prefix}wallpaper <random>
-├ ${prefix}quotesanime <random>
-├ ${prefix}wikimedia <teks>
-├ ${prefix}aesthetic <random>
-├ ${prefix}kucing <random>
-├ ${prefix}boneka <random>
-├ ${prefix}doraemon <random>
-├ ${prefix}meme <random>
-├ ${prefix}darkjokes <random>
-├ ${prefix}cewek <random>
-├ ${prefix}cowok <random>
-├ ${prefix}storyanime <random>
-├ ${prefix}cita-cita <random>
-└ ${prefix}cerpen-random <random>
+╔════⧫「 *RANDOM* 」
+║ ${prefix}jodohku <random>
+║ ${prefix}jadian <random>
+║ ${prefix}bebangc <random>
+║ ${prefix}lonte <random>
+║ ${prefix}yatim <random>
+║ ${prefix}ganteng <random>
+║ ${prefix}cantik <random>
+║ ${prefix}apakah <teks>
+║ ${prefix}kapankah <teks>
+║ ${prefix}bisakah <teks>
+║ ${prefix}katadilan <random>
+║ ${prefix}truth <random>
+║ ${prefix}dare <random>
+║ ${prefix}couple <random>
+║ ${prefix}pinterest <teks>
+║ ${prefix}google <teks>
+║ ${prefix}gimage <teks>
+║ ${prefix}wallpaper <random>
+║ ${prefix}quotesanime <random>
+║ ${prefix}wikimedia <teks>
+║ ${prefix}aesthetic <random>
+║ ${prefix}kucing <random>
+║ ${prefix}boneka <random>
+║ ${prefix}doraemon <random>
+║ ${prefix}meme <random>
+║ ${prefix}darkjokes <random>
+║ ${prefix}cewek <random>
+║ ${prefix}cowok <random>
+║ ${prefix}storyanime <random>
+║ ${prefix}cita-cita <random>
+║ ${prefix}cerpen-random <random>
+╚════⧫
 
-╭「 *ASUPAN* 」
-├ ${prefix}bocil <random>
-├ ${prefix}santuy <random>
-├ ${prefix}ukhty <random>
-├ ${prefix}geayubi <random>
-├ ${prefix}asupanloli <random>
-└ ${prefix}asupan <random>
+╔════⧫「 *ASUPAN* 」
+║ ${prefix}bocil <random>
+║ ${prefix}santuy <random>
+║ ${prefix}ukhty <random>
+║ ${prefix}geayubi <random>
+║ ${prefix}asupanloli <random>
+╚════⧫${prefix}asupan <random>
 
-╭「 *DOWNLOAD* 」
-├ ${prefix}play <teks>
-├ ${prefix}yts <teks>
-├ ${prefix}ytmp3 <url>
-├ ${prefix}ytmp4 <url>
-└ ${prefix}gitclone <url>
+╔════⧫「 *DOWNLOAD* 」
+║ ${prefix}play <teks>
+║ ${prefix}yts <teks>
+║ ${prefix}ytmp3 <url>
+║ ${prefix}ytmp4 <url>
+║ ${prefix}gitclone <url>
+╚════⧫
 
-╭「 *TOOLS & SEARCH* 」
-├ ${prefix}get <url>
-├ ${prefix}ssweb <url>
-├ ${prefix}liriklagu <teks>
-├ ${prefix}ghstalk <teks>
-├ ${prefix}tourl <image/sticker>
-├ ${prefix}tinyurl <url>
-├ ${prefix}gtts <teks>
-├ ${prefix}translate <teks>
-├ ${prefix}volumereq <audio/video>
-├ ${prefix}bassreq <audio/video>
-└ ${prefix}temporeq <audio/video>
+╔════⧫「 *TOOLS & SEARCH* 」
+║ ${prefix}get <url>
+║ ${prefix}ssweb <url>
+║ ${prefix}liriklagu <teks>
+║ ${prefix}ghstalk <teks>
+║ ${prefix}tourl <image/sticker>
+║ ${prefix}tinyurl <url>
+║ ${prefix}gtts <teks>
+║ ${prefix}translate <teks>
+║ ${prefix}volumereq <audio/video>
+║ ${prefix}bassreq <audio/video>
+║ ${prefix}temporeq <audio/video>
+╚════⧫
 
-╭「 *DATABASE* 」
-├ ${prefix}setcmd <stick/teks>
-├ ${prefix}listcmd <list cmd>
-├ ${prefix}delcmd <delete cmd>
-├ ${prefix}lockcmd <lock cmd>
-├ ${prefix}addmsg <all media/teks>
-├ ${prefix}listmsg <list media>
-├ ${prefix}delmsg <teks>
-└ ${prefix}getmsg <teks>
+╔════⧫「 *DATABASE* 」
+║ ${prefix}setcmd <stick/teks>
+║ ${prefix}listcmd <list cmd>
+║ ${prefix}delcmd <delete cmd>
+║ ${prefix}lockcmd <lock cmd>
+║ ${prefix}addmsg <all media/teks>
+║ ${prefix}listmsg <list media>
+║ ${prefix}delmsg <teks>
+║ ${prefix}getmsg <teks>
+╚════⧫
 
-╭「 *CONVERT* 」
-├ ${prefix}sticker <image/video>
-├ ${prefix}stickerwm  <teks>
-├ ${prefix}take <teks|teks>
-├ ${prefix}smeme <teks|teks>
-├ ${prefix}emojimix <emoji>
-├ ${prefix}emojimix2 <emoji>
-├ ${prefix}styletext <teks>
-├ ${prefix}toimg <reply sticker>
-├ ${prefix}tovideo <reply stick gift>
-├ ${prefix}toaudio <reply audio>
-├ ${prefix}tomp3 <reply audio>
-├ ${prefix}tovn <reply audio>
-├ ${prefix}togif <reply stick gift>
-├ ${prefix}bass <reply audio>
-├ ${prefix}blown <reply audio>
-├ ${prefix}deep <reply audio>
-├ ${prefix}earrape <reply audio>
-├ ${prefix}fast <reply audio>
-├ ${prefix}fat <reply audio>
-├ ${prefix}nightcore <reply audio>
-├ ${prefix}reverse <reply audio>
-├ ${prefix}robot <reply audio>
-├ ${prefix}slow <reply audio>
-├ ${prefix}smooth <reply audio>
-├ ${prefix}tupai <reply audio>
-└ ${prefix}imut <reply audio>
+╔════⧫「 *CONVERT* 」
+║ ${prefix}sticker <image/video>
+║ ${prefix}stickerwm  <teks>
+║ ${prefix}take <teks|teks>
+║ ${prefix}smeme <teks|teks>
+║ ${prefix}emojimix <emoji>
+║ ${prefix}emojimix2 <emoji>
+║ ${prefix}styletext <teks>
+║ ${prefix}toimg <reply sticker>
+║ ${prefix}tovideo <reply stick gift>
+║ ${prefix}toaudio <reply audio>
+║ ${prefix}tomp3 <reply audio>
+║ ${prefix}tovn <reply audio>
+║ ${prefix}togif <reply stick gift>
+║ ${prefix}bass <reply audio>
+║ ${prefix}blown <reply audio>
+║ ${prefix}deep <reply audio>
+║ ${prefix}earrape <reply audio>
+║ ${prefix}fast <reply audio>
+║ ${prefix}fat <reply audio>
+║ ${prefix}nightcore <reply audio>
+║ ${prefix}reverse <reply audio>
+║ ${prefix}robot <reply audio>
+║ ${prefix}slow <reply audio>
+║ ${prefix}smooth <reply audio>
+║ ${prefix}tupai <reply audio>
+║ ${prefix}imut <reply audio>
+╚════⧫
 
-╭「 *ANIME* 」
-├ ${prefix}listanime <all anime>
-├ ${prefix}akira <random>
-├ ${prefix}akiyama <random>
-├ ${prefix}ana <random>
-├ ${prefix}asuna <random>
-├ ${prefix}ayuzawa <random>
-├ ${prefix}boruto <random>
-├ ${prefix}chitoge <random>
-├ ${prefix}deidara <random>
-├ ${prefix}elaina <random>
-├ ${prefix}emilia <random>
-├ ${prefix}erza <random>
-├ ${prefix}gremory <random>
-├ ${prefix}hestia <random>
-├ ${prefix}hinata <random>
-├ ${prefix}inori <random>
-├ ${prefix}isuzu <random>
-├ ${prefix}itachi <random>
-├ ${prefix}itori <random>
-├ ${prefix}kaga <random>
-├ ${prefix}kagura <random>
-├ ${prefix}kakasih <random>
-├ ${prefix}kaori <random>
-├ ${prefix}keneki <random>
-├ ${prefix}kotori <random>
-├ ${prefix}kurumi <random>
-├ ${prefix}madara <random>
-├ ${prefix}mikasa <random>
-├ ${prefix}minato <random>
-├ ${prefix}naruto <random>
-├ ${prefix}nezuko <random>
-├ ${prefix}onepiece <random>
-├ ${prefix}pokemon <random>
-├ ${prefix}rize <random>
-├ ${prefix}rose <random>
-├ ${prefix}ryujin <random>
-├ ${prefix}sakura <random>
-├ ${prefix}sasuke <random>
-├ ${prefix}shina <random>
-├ ${prefix}shinka <random>
-├ ${prefix}shizuka <random>
-├ ${prefix}shota <random>
-├ ${prefix}toukachan <random>
-├ ${prefix}tsunade <random>
-├ ${prefix}yuki <random>
-├ ${prefix}yuri <random>
-├ ${prefix}sagiri <random>
-├ ${prefix}hentai <random>
-├ ${prefix}waifu <random>
-├ ${prefix}cry <random>
-├ ${prefix}kill <random>
-├ ${prefix}hug <random>
-├ ${prefix}pat <random>
-├ ${prefix}lick <random>
-├ ${prefix}kiss <random>
-├ ${prefix}bite <random>
-├ ${prefix}yeet <random>
-├ ${prefix}bully <random>
-├ ${prefix}bonk <random>
-├ ${prefix}wink <random>
-├ ${prefix}poke <random>
-├ ${prefix}nom <random>
-├ ${prefix}slap <random>
-├ ${prefix}smile <random>
-├ ${prefix}wave <random>
-├ ${prefix}awoo <random>
-├ ${prefix}blush <random>
-├ ${prefix}smug <random>
-├ ${prefix}glomp <random>
-├ ${prefix}happy <random>
-├ ${prefix}dance <random>
-├ ${prefix}cringe <random>
-├ ${prefix}cuddle <random>
-├ ${prefix}highfive <random>
-├ ${prefix}shinobu <random>
-├ ${prefix}megumin <random>
-└ ${prefix}handhold <random>
+╔════⧫「 *ANIME* 」
+║ ${prefix}listanime <all anime>
+║ ${prefix}akira <random>
+║ ${prefix}akiyama <random>
+║ ${prefix}ana <random>
+║ ${prefix}asuna <random>
+║ ${prefix}ayuzawa <random>
+║ ${prefix}boruto <random>
+║ ${prefix}chitoge <random>
+║ ${prefix}deidara <random>
+║ ${prefix}elaina <random>
+║ ${prefix}emilia <random>
+║ ${prefix}erza <random>
+║ ${prefix}gremory <random>
+║ ${prefix}hestia <random>
+║ ${prefix}hinata <random>
+║ ${prefix}inori <random>
+║ ${prefix}isuzu <random>
+║ ${prefix}itachi <random>
+║ ${prefix}itori <random>
+║ ${prefix}kaga <random>
+║ ${prefix}kagura <random>
+║ ${prefix}kakasih <random>
+║ ${prefix}kaori <random>
+║ ${prefix}keneki <random>
+║ ${prefix}kotori <random>
+║ ${prefix}kurumi <random>
+║ ${prefix}madara <random>
+║ ${prefix}mikasa <random>
+║ ${prefix}minato <random>
+║ ${prefix}naruto <random>
+║ ${prefix}nezuko <random>
+║ ${prefix}onepiece <random>
+║ ${prefix}pokemon <random>
+║ ${prefix}rize <random>
+║ ${prefix}rose <random>
+║ ${prefix}ryujin <random>
+║ ${prefix}sakura <random>
+║ ${prefix}sasuke <random>
+║ ${prefix}shina <random>
+║ ${prefix}shinka <random>
+║ ${prefix}shizuka <random>
+║ ${prefix}shota <random>
+║ ${prefix}toukachan <random>
+║ ${prefix}tsunade <random>
+║ ${prefix}yuki <random>
+║ ${prefix}yuri <random>
+║ ${prefix}sagiri <random>
+║ ${prefix}hentai <random>
+║ ${prefix}waifu <random>
+║ ${prefix}cry <random>
+║ ${prefix}kill <random>
+║ ${prefix}hug <random>
+║ ${prefix}pat <random>
+║ ${prefix}lick <random>
+║ ${prefix}kiss <random>
+║ ${prefix}bite <random>
+║ ${prefix}yeet <random>
+║ ${prefix}bully <random>
+║ ${prefix}bonk <random>
+║ ${prefix}wink <random>
+║ ${prefix}poke <random>
+║ ${prefix}nom <random>
+║ ${prefix}slap <random>
+║ ${prefix}smile <random>
+║ ${prefix}wave <random>
+║ ${prefix}awoo <random>
+║ ${prefix}blush <random>
+║ ${prefix}smug <random>
+║ ${prefix}glomp <random>
+║ ${prefix}happy <random>
+║ ${prefix}dance <random>
+║ ${prefix}cringe <random>
+║ ${prefix}cuddle <random>
+║ ${prefix}highfive <random>
+║ ${prefix}shinobu <random>
+║ ${prefix}megumin <random>
+║ ${prefix}handhold <random>
+╚════⧫
 
-╭「 *MAKER* 」
-├ ${prefix}maker <teks>
-├ ${prefix}candy <teks>
-├ ${prefix}christmas <teks>
-├ ${prefix}3dchristmas <teks>
-├ ${prefix}sparklechristmas <teks>
-├ ${prefix}deepsea <teks>
-├ ${prefix}scifi <teks>
-├ ${prefix}rainbow <teks>
-├ ${prefix}waterpipe <teks>
-├ ${prefix}spooky <teks>
-├ ${prefix}pencil <teks>
-├ ${prefix}circuit <teks>
-├ ${prefix}discovery <teks>
-├ ${prefix}metalic <teks>
-├ ${prefix}fiction <teks>
-├ ${prefix}fabric <teks>
-├ ${prefix}demon <teks>
-├ ${prefix}transformer <teks>
-├ ${prefix}berry <teks>
-├ ${prefix}thunder <teks>
-├ ${prefix}magma <teks>
-├ ${prefix}3dstone <teks>
-├ ${prefix}neonlight <teks>
-├ ${prefix}glitch <teks>
-├ ${prefix}harrypotter <teks>
-├ ${prefix}brokenglass <teks>
-├ ${prefix}papercut <teks>
-├ ${prefix}watercolor <teks>
-├ ${prefix}multicolor <teks>
-├ ${prefix}neondevil <teks>
-├ ${prefix}underwater <teks>
-├ ${prefix}graffitibike <teks>
-├ ${prefix}graffitiwall <teks>
-├ ${prefix}graffiticool <teks>
-├ ${prefix}snow <teks>
-├ ${prefix}cloud <teks>
-├ ${prefix}honey <teks>
-├ ${prefix}ice <teks>
-├ ${prefix}fruitjuice <teks>
-├ ${prefix}biscuit <teks>
-├ ${prefix}wood <teks>
-├ ${prefix}chocolate <teks>
-├ ${prefix}strawberry <teks>
-├ ${prefix}matrix <teks>
-├ ${prefix}blood <teks>
-├ ${prefix}dropwater <teks>
-├ ${prefix}toxic <teks>
-├ ${prefix}lava <teks>
-├ ${prefix}rock <teks>
-├ ${prefix}bloodglas <teks>
-├ ${prefix}hallowen <teks>
-├ ${prefix}darkgold <teks>
-├ ${prefix}joker <teks>
-├ ${prefix}wicker <teks>
-├ ${prefix}firework <teks>
-├ ${prefix}skeleton <teks>
-├ ${prefix}blackpink <teks>
-├ ${prefix}sand <teks>
-├ ${prefix}steel <teks>
-├ ${prefix}glue <teks>
-├ ${prefix}1917 <teks>
-├ ${prefix}leaves <teks>
-├ ${prefix}luxury <teks>
-├ ${prefix}foggy <teks>
-└ ${prefix}marvel <teks>
+╔════⧫「 *MAKER* 」
+║ ${prefix}maker <teks>
+║ ${prefix}candy <teks>
+║ ${prefix}christmas <teks>
+║ ${prefix}3dchristmas <teks>
+║ ${prefix}sparklechristmas <teks>
+║ ${prefix}deepsea <teks>
+║ ${prefix}scifi <teks>
+║ ${prefix}rainbow <teks>
+║ ${prefix}waterpipe <teks>
+║ ${prefix}spooky <teks>
+║ ${prefix}pencil <teks>
+║ ${prefix}circuit <teks>
+║ ${prefix}discovery <teks>
+║ ${prefix}metalic <teks>
+║ ${prefix}fiction <teks>
+║ ${prefix}fabric <teks>
+║ ${prefix}demon <teks>
+║ ${prefix}transformer <teks>
+║ ${prefix}berry <teks>
+║ ${prefix}thunder <teks>
+║ ${prefix}magma <teks>
+║ ${prefix}3dstone <teks>
+║ ${prefix}neonlight <teks>
+║ ${prefix}glitch <teks>
+║ ${prefix}harrypotter <teks>
+║ ${prefix}brokenglass <teks>
+║ ${prefix}papercut <teks>
+║ ${prefix}watercolor <teks>
+║ ${prefix}multicolor <teks>
+║ ${prefix}neondevil <teks>
+║ ${prefix}underwater <teks>
+║ ${prefix}graffitibike <teks>
+║ ${prefix}graffitiwall <teks>
+║ ${prefix}graffiticool <teks>
+║ ${prefix}snow <teks>
+║ ${prefix}cloud <teks>
+║ ${prefix}honey <teks>
+║ ${prefix}ice <teks>
+║ ${prefix}fruitjuice <teks>
+║ ${prefix}biscuit <teks>
+║ ${prefix}wood <teks>
+║ ${prefix}chocolate <teks>
+║ ${prefix}strawberry <teks>
+║ ${prefix}matrix <teks>
+║ ${prefix}blood <teks>
+║ ${prefix}dropwater <teks>
+║ ${prefix}toxic <teks>
+║ ${prefix}lava <teks>
+║ ${prefix}rock <teks>
+║ ${prefix}bloodglas <teks>
+║ ${prefix}hallowen <teks>
+║ ${prefix}darkgold <teks>
+║ ${prefix}joker <teks>
+║ ${prefix}wicker <teks>
+║ ${prefix}firework <teks>
+║ ${prefix}skeleton <teks>
+║ ${prefix}blackpink <teks>
+║ ${prefix}sand <teks>
+║ ${prefix}steel <teks>
+║ ${prefix}glue <teks>
+║ ${prefix}1917 <teks>
+║ ${prefix}leaves <teks>
+║ ${prefix}luxury <teks>
+║ ${prefix}foggy <teks>
+║ ${prefix}luxury <teks>
+║ ${prefix}marvel <teks>
+╚════⧫
 
-╭「 *GROUPS* 」
-├ ${prefix}group  <teks>
-├ ${prefix}editinfo <teks>
-├ ${prefix}opentime <teks>
-├ ${prefix}closetime <teks>
-├ ${prefix}ephemeral <teks>
-├ ${prefix}linkgroup <url gc>
-├ ${prefix}revoke <reset url gc>
-├ ${prefix}kick <tag>
-├ ${prefix}add <tag>
-├ ${prefix}promote <tag>
-├ ${prefix}demote <tag>
-├ ${prefix}setname <teks>
-├ ${prefix}setdesk <teks>
-├ ${prefix}setppgrup <image>
-├ ${prefix}setppgrup2 <panjang>
-├ ${prefix}tagall <teks>
-├ ${prefix}hidetag <teks>
-├ ${prefix}hidetag2 <teks>
-└ ${prefix}totag <all/reply>
+╔════⧫「 *GROUPS* 」
+║ ${prefix}group  <teks>
+║ ${prefix}editinfo <teks>
+║ ${prefix}opentime <teks>
+║ ${prefix}closetime <teks>
+║ ${prefix}ephemeral <teks>
+║ ${prefix}linkgroup <url gc>
+║ ${prefix}revoke <reset url gc>
+║ ${prefix}kick <tag>
+║ ${prefix}add <tag>
+║ ${prefix}promote <tag>
+║ ${prefix}demote <tag>
+║ ${prefix}setname <teks>
+║ ${prefix}setdesk <teks>
+║ ${prefix}setppgrup <image>
+║ ${prefix}setppgrup2 <panjang>
+║ ${prefix}tagall <teks>
+║ ${prefix}hidetag <teks>
+║ ${prefix}hidetag2 <teks>
+║ ${prefix}totag <all/reply>
+╚════⧫
 
-╭「 *OWNER* 」
-├ ${prefix}bc <teks>
-├ ${prefix}bcgc <teks>
-├ ${prefix}bcpvtchat <teks>
-├ ${prefix}chat <teks>
-├ ${prefix}join <url gc>
-├ ${prefix}culik <tag>
-├ ${prefix}leave <out>
-├ ${prefix}block <tag>
-├ ${prefix}unblock <tag>
-├ ${prefix}setppbot <image>
-├ ${prefix}setppbot2 <panjang>
-├ ${prefix}setthumb <image>
-├ ${prefix}setthumb2 <image>
-├ ${prefix}setwelcome <vn>
-├ ${prefix}setleave <vn>
-├ ${prefix}setvnerror <vn>
-├ ${prefix}setvnlink <vn>
-├ ${prefix}setexif <teks|teks>
-├ ${prefix}creategc <teks>
-├ ${prefix}self <khusus>
-├ ${prefix}public <semua>
-├ ${prefix}restart <restart>
-├ ${prefix}getfile <lib/storage/dll>
-├ ${prefix}getsesi <sessions>
-└ ${prefix}getcs <teks>
-`
+╔════⧫「 *OWNER* 」
+║ ${prefix}bc <teks>
+║ ${prefix}bcgc <teks>
+║ ${prefix}bcpvtchat <teks>
+║ ${prefix}chat <teks>
+║ ${prefix}join <url gc>
+║ ${prefix}culik <tag>
+║ ${prefix}leave <out>
+║ ${prefix}block <tag>
+║ ${prefix}unblock <tag>
+║ ${prefix}setppbot <image>
+║ ${prefix}setppbot2 <panjang>
+║ ${prefix}setthumb <image>
+║ ${prefix}setthumb2 <image>
+║ ${prefix}setwelcome <vn>
+║ ${prefix}setleave <vn>
+║ ${prefix}setvnerror <vn>
+║ ${prefix}setvnlink <vn>
+║ ${prefix}setexif <teks|teks>
+║ ${prefix}creategc <teks>
+║ ${prefix}self <khusus>
+║ ${prefix}public <semua>
+║ ${prefix}restart <restart>
+║ ${prefix}getfile <lib/storage/dll>
+║ ${prefix}getsesi <sessions>
+║ ${prefix}getcs <teks>
+╚════⧫`
   rdmmenu(menunya)
   } catch (err) {
   reply2(from)
@@ -600,17 +612,17 @@ ${readmore}
   break
 case 'thankto': case 'thanksto': {
   try {
-  let ingfo = `╭「 *THANK TO* 」
-├ Allah SWT
-├ Ortu
-├ FxSx <base>
-├ Fatih Arridho
-├ Fadli
-├ NathanDev
-├ Dika Ardnt
-├ Ferdiz Afk
-└ Diva Uwu
-`
+  let ingfo = `╔════⧫「 *THANK TO* 」
+║ Allah SWT
+║ Ortu
+║ FxSx <base>
+║ Fatih Arridho
+║ Fadli
+║ NathanDev
+║ Dika Ardnt
+║ Ferdiz Afk
+║ Diva Uwu
+╚════⧫`
   let buttons = [
       {buttonId: 'rulesb', buttonText: {displayText: 'Rules Bot'}, type: 1}
   ]
@@ -645,7 +657,7 @@ case 'rules': case 'rulesbot': case 'rulesb': {
 •> Sanksi: *Permanen Block*
 `
   let buttons = [
-      {buttonId: `faaajjjjrrriii`, buttonText: {displayText: 'Sudah Dimengerti'}, type: 1}
+      {buttonId: `Alwi`, buttonText: {displayText: 'Sudah Dimengerti'}, type: 1}
   ]
   let buttonMessage = {
   document: global.thumb2,
@@ -677,10 +689,10 @@ case 'owner': {
 case 'listpc': {
   try {
   let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v.id)
-  let teks = `╭「 *LIST CHAT* 」\n└ Total Chat : ${anu.length}\n\n`
+  let teks = `╔════⧫「 *LIST CHAT* 」\n╚════⧫Total Chat : ${anu.length}\n\n`
   for (let i of anu) {
   let nama = store.messages[i].array[0].pushName
-      teks += `╭ *Nama :* ${nama}\n├ *User :* @${i.split('@')[0]}\n└ *Chat :* https://wa.me/${i.split('@')[0]}\n\n──────────────────\n\n`
+      teks += `╔════⧫ *Nama :* ${nama}\n║ *User :* @${i.split('@')[0]}\n╚════⧫*Chat :* https://wa.me/${i.split('@')[0]}\n\n──────────────────\n\n`
   }
   xcaa.sendTextWithMentions(m.chat, teks, ftroli)
   } catch (err) {
@@ -691,10 +703,10 @@ case 'listpc': {
 case 'listgc': {
   try {
   let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
-  let teks = `╭「 *LIST GRUP* 」\n└ Total Group : ${anu.length} Group\n\n`
+  let teks = `╔════⧫「 *LIST GRUP* 」\n╚════⧫Total Group : ${anu.length} Group\n\n`
   for (let i of anu) {
   let metadata = await xcaa.groupMetadata(i)
-      teks += `╭ *Nama :* ${metadata.subject}\n├ *Owner Grup :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0] : 'Tidak diketahui'}\n├ *ID :* ${metadata.id}\n├ *Dibuat :* ${moment(metadata.creation * 1000).tz('Asia/Jakarta').format('DD/MM/YYYY HH:mm:ss')}\n└ *Member :* ${metadata.participants.length}\n\n──────────────────\n\n`
+      teks += `╔════⧫ *Nama :* ${metadata.subject}\n║ *Owner Grup :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0] : 'Tidak diketahui'}\n║ *ID :* ${metadata.id}\n║ *Dibuat :* ${moment(metadata.creation * 1000).tz('Asia/Jakarta').format('DD/MM/YYYY HH:mm:ss')}\n╚════⧫*Member :* ${metadata.participants.length}\n\n──────────────────\n\n`
   }
   xcaa.sendTextWithMentions(m.chat, teks, fstick)
   } catch (err) {
@@ -724,7 +736,7 @@ case 'delete': case 'del': case 'd': {
 case 'request': case 'reqfitur': case 'reqf': {
   if (!args.join(" ")) return m.reply(`*Contoh : ${prefix + command} Tambahin Fitur Download*`)
   try {
-  teks = `╭「 *Request Fitur* 」\n├ Nomor : @${m.sender.split("@")[0]}\n└ Request : ${args.join(" ")}`
+  teks = `╔════⧫「 *Request Fitur* 」\n║ Nomor : @${m.sender.split("@")[0]}\n╚════⧫Request : ${args.join(" ")}`
   for (let i of global.ownerNumber) {
   xcaa.sendMessage(i + "@s.whatsapp.net", {text: teks, mentions: [m.sender]}, {quoted:m})
   }
@@ -737,7 +749,7 @@ case 'request': case 'reqfitur': case 'reqf': {
 case 'report': case 'lapor': {
   if (!args.join(" ")) return m.reply(`*Contoh : ${prefix + command} Fitur Download Play Error*`)
   try {
-  teks = `╭「 *Report Fitur* 」\n├ Nomor : @${m.sender.split("@")[0]}\n└ Report : ${args.join(" ")}`
+  teks = `╔════⧫「 *Report Fitur* 」\n║ Nomor : @${m.sender.split("@")[0]}\n╚════⧫Report : ${args.join(" ")}`
   for (let i of global.ownerNumber) {
   xcaa.sendMessage(i + "@s.whatsapp.net", {text: teks, mentions: [m.sender]}, {quoted:m})
   }
@@ -799,7 +811,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
   }
   break
 case 'kodebahasa': case 'bahasa': case 'codebahasa': case 'cdbhs': case 'bhs': {
-  m.reply(`╭「 *BAHASA* 」\n├ af: Afrikaans\n├ sq: Albanian\n├ ar: Arabic\n├ hy: Armenian\n├ ca: Catalan\n├ zh: Chinese\n├ zh-cn: Chinese (China)\n├ zh-tw: Chinese (Taiwan)\n├ zh-yue: Chinese (Cantonese)\n├ hr: Croatian\n├ cs: Czech\n├ da: Danish\n├ nl: Dutch\n├ en: English\n├ en-au: English (Australia)\n├ en-uk: English (Kingdom)\n├ en-us: English (States)\n├ eo: Esperanto\n├ fi: Finnish\n├ fr: French\n├ de: German\n├ el: Greek\n├ ht: Haitian Creole\n├ hi: Hindi\n├ hu: Hungarian\n├ is: Icelandic\n├ id: Indonesian\n├ it: Italian\n├ ja: Japanese\n├ ko: Korean\n├ la: Latin\n├ lv: Latvian\n├ mk: Macedonian\n├ no: Norwegian\n├ pl: Polish\n├ pt: Portuguese\n├ pt-br: Portuguese (Brazil)\n├ ro: Romanian\n├ ru: Russian\n├ sr: Serbian\n├ sk: Slovak\n├ es: Spanish\n├ es-es: Spanish (Spain)\n├ es-us: Spanish (States)\n├ sw: Swahili\n├ sv: Swedish\n├ ta: Tamil\n├ th: Thai\n├ tr: Turkish\n├ vi: Vietnamese\n└ cy: Welsh`)
+  m.reply(`╔════⧫「 *BAHASA* 」\n║ af: Afrikaans\n║ sq: Albanian\n║ ar: Arabic\n║ hy: Armenian\n║ ca: Catalan\n║ zh: Chinese\n║ zh-cn: Chinese (China)\n║ zh-tw: Chinese (Taiwan)\n║ zh-yue: Chinese (Cantonese)\n║ hr: Croatian\n║ cs: Czech\n║ da: Danish\n║ nl: Dutch\n║ en: English\n║ en-au: English (Australia)\n║ en-uk: English (Kingdom)\n║ en-us: English (States)\n║ eo: Esperanto\n║ fi: Finnish\n║ fr: French\n║ de: German\n║ el: Greek\n║ ht: Haitian Creole\n║ hi: Hindi\n║ hu: Hungarian\n║ is: Icelandic\n║ id: Indonesian\n║ it: Italian\n║ ja: Japanese\n║ ko: Korean\n║ la: Latin\n║ lv: Latvian\n║ mk: Macedonian\n║ no: Norwegian\n║ pl: Polish\n║ pt: Portuguese\n║ pt-br: Portuguese (Brazil)\n║ ro: Romanian\n║ ru: Russian\n║ sr: Serbian\n║ sk: Slovak\n║ es: Spanish\n║ es-es: Spanish (Spain)\n║ es-us: Spanish (States)\n║ sw: Swahili\n║ sv: Swedish\n║ ta: Tamil\n║ th: Thai\n║ tr: Turkish\n║ vi: Vietnamese\n╚════⧫cy: Welsh`)
   }
   break
 //Owner Menu
@@ -1111,7 +1123,7 @@ case 'setexif': {
   try {
   global.packname = text.split("|")[0]
   global.author = text.split("|")[1]
-  m.reply(`╭ Packname : ${global.packname}\n└ Author : ${global.author}`)
+  m.reply(`╔════⧫ Packname : ${global.packname}\n╚════⧫Author : ${global.author}`)
   } catch (err) {
   reply2(from)
   }
@@ -1143,7 +1155,7 @@ case 'creategc': case 'bikingc': case 'bikingrup': case 'bikingroup': {
   try {
   let cret = await xcaa.groupCreate(args.join(" "), [])
   let response = await xcaa.groupInviteCode(cret.id)
-  let teks = `╭ Name : ${cret.subject}\n├ Owner : @${cret.owner.split("@")[0]}\n├ Creation : ${moment(cret.creation * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")} WIB\n└ Link : https://chat.whatsapp.com/${response}`
+  let teks = `╔════⧫ Name : ${cret.subject}\n║ Owner : @${cret.owner.split("@")[0]}\n║ Creation : ${moment(cret.creation * 1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")} WIB\n╚════⧫Link : https://chat.whatsapp.com/${response}`
   xcaa.sendMessage(m.chat, { text: teks, mentions: await xcaa.parseMention(teks)}, {quoted: m})
   m.reply(mess.sukses)
   } catch (err) {
@@ -1365,7 +1377,7 @@ case 'tagall': {
   if (!m.isGroup) return m.reply(mess.group)
   if (!isAdmins && !isOwner && !m.key.fromMe) return m.reply(mess.admin)
   try {
-  let teks = `╭ *Tag All*\n└ *Pesan : ${q ? q : 'Kosong'}*\n\n`
+  let teks = `╔════⧫ *Tag All*\n╚════⧫*Pesan : ${q ? q : 'Kosong'}*\n\n`
   for (let mem of participants) {
   teks += `•> @${mem.id.split('@')[0]}\n`
   }
@@ -2078,9 +2090,9 @@ case 'google': {
   google({'query': text}).then(res => {
   let teks = `「 *Google Search* 」`
   for (let g of res) {
-  teks += `╭ *Title* : ${g.title}\n`
-  teks += `├ *Description* : ${g.snippet}\n`
-  teks += `└ *Link* : ${g.link}\n\n───────────────────\n\n`
+  teks += `╔════⧫ *Title* : ${g.title}\n`
+  teks += `║ *Description* : ${g.snippet}\n`
+  teks += `╚════⧫*Link* : ${g.link}\n\n───────────────────\n\n`
   } 
   m.reply(teks)
   })
@@ -2118,7 +2130,7 @@ case 'wikimedia': {
   let buttons = [{buttonId: `${prefix + command} ${text}`, buttonText: {displayText: 'Next Wiki'}, type: 1}]
   let buttonMessage = {
   image: { url: result.image },
-  caption: `╭ Title : ${result.title}\n├ Source : ${result.source}\n└ Media Url : ${result.image}`,
+  caption: `╔════⧫ Title : ${result.title}\n║ Source : ${result.source}\n╚════⧫Media Url : ${result.image}`,
   footer: `${rdmaut}`,
   buttons: buttons,
   headerType: 4
@@ -2217,7 +2229,7 @@ case 'cerpen-random': {
   let ce = [`anak`,`bahasa daerah`,`bahasa inggris`,`bahasa jawa`,`bahasa sunda`,`budaya`,`cinta`,`cinta islami`,`cinta pertama`,`cinta romantis`,`cinta sedih`,`cinta segitiga`,`cinta sejati`,`galau`,`gokil`,`inspiratif`,`jepang`,`kehidupan`,`keluarga`,`kisah nyata`,`korea`,`kristen`,`liburan`,`malaysia`,`mengharukan`,`misteri`,`motivasi`,`nasihat`,`nasionalisme`,`olahraga`,`patah hati`,`penantian`,`pendidikan`,`pengalaman pribadi`,`pengorbanan`,`penyesalan`,`perjuangan`,`perpisahan`,`persahabatan`,`petualangan`,`ramadhan`,`remaja`,`rindu`,`rohani`,`romantis`,`sastra`,`sedih`,`sejarah`]
   let pen = pickRandom(ce)
   let cerpe = await cerpen(pen)
-  m.reply(`╭ *Title :* ${cerpe.title}\n├ *Author :* ${cerpe.author}\n├ *Category :* ${cerpe.kategori}\n├ *Pass Moderation :* ${cerpe.lolos}\n└ *Story :* ${cerpe.cerita}`)
+  m.reply(`╔════⧫ *Title :* ${cerpe.title}\n║ *Author :* ${cerpe.author}\n║ *Category :* ${cerpe.kategori}\n║ *Pass Moderation :* ${cerpe.lolos}\n╚════⧫*Story :* ${cerpe.cerita}`)
   } catch (err) {
   reply2(from)
   }
@@ -2237,7 +2249,7 @@ case 'play': case 'ytplay': {
   ]
   let buttonMessage = {
   image: { url: hasil.thumbnail },
-  caption: `╭ *Title :* ${hasil.title}\n├ *Duration :* ${hasil.timestamp}\n├ *Viewers :* ${hasil.views}\n├ *Upload :* ${hasil.ago}\n├ *Channel :* ${hasil.author.url}\n└ *Url :* ${hasil.url}`,
+  caption: `╔════⧫ *Title :* ${hasil.title}\n║ *Duration :* ${hasil.timestamp}\n║ *Viewers :* ${hasil.views}\n║ *Upload :* ${hasil.ago}\n║ *Channel :* ${hasil.author.url}\n╚════⧫*Url :* ${hasil.url}`,
   footer: `${rdmaut}`,
   buttons: buttons,
   headerType: 4
@@ -2268,7 +2280,7 @@ case 'ytmp4': case 'ytvideo': {
   let quality = args[1] ? args[1] : '360p'
   let media = await ytv(text, quality)
   if (media.filesize >= 100000) return m.reply('File Melebihi Batas '+util.format(media))
-  xcaa.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `╭ Title : ${media.title}\n├ File Size : ${media.filesizeF}\n├ Url : ${isUrl(text)}\n├ Ext : MP3\n└ Resolusi : ${args[1] || '360p'}`}, { quoted: m })
+  xcaa.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `╔════⧫ Title : ${media.title}\n║ File Size : ${media.filesizeF}\n║ Url : ${isUrl(text)}\n║ Ext : MP3\n╚════⧫Resolusi : ${args[1] || '360p'}`}, { quoted: m })
   } catch (err) {
   reply2(from)
   }
@@ -2280,10 +2292,10 @@ case 'yts': case 'ytsearch': {
   try {
   let yts = require("yt-search")
   let search = await yts(text)
-  let teks = '╭「 *Data Diproleh* 」\n└ Keywords : '+text+'\n\n'
+  let teks = '╔════⧫「 *Data Diproleh* 」\n╚════⧫Keywords : '+text+'\n\n'
   let no = 1
   for (let i of search.all) {
-  teks += `╭ No : ${no++}\n├ Type : ${i.type}\n├ Video ID : ${i.videoId}\n├ Title : ${i.title}\n├ Views : ${i.views}\n├ Duration : ${i.timestamp}\n├ Upload : ${i.ago}\n├ Author : ${i.author.name}\n└ Url : ${i.url}\n\n────────────\n\n`
+  teks += `╔════⧫ No : ${no++}\n║ Type : ${i.type}\n║ Video ID : ${i.videoId}\n║ Title : ${i.title}\n║ Views : ${i.views}\n║ Duration : ${i.timestamp}\n║ Upload : ${i.ago}\n║ Author : ${i.author.name}\n╚════⧫Url : ${i.url}\n\n────────────\n\n`
   }
   xcaa.sendMessage(m.chat, { image: { url: search.all[0].thumbnail }, caption: teks }, { quoted: m })
   } catch (err) {
@@ -2334,7 +2346,7 @@ case 'liriklagu': case 'lirik-lagu': {
   try {
   res = await lirikLagu(`${args[0]}`)
   bufftt = await getBuffer(res.thumb)
-  xcaa.sendMessage(m.chat, {image: bufftt, caption: `╭ *Judul :* ${res.judul}\n├ *Artis :* ${res.penyanyi}\n└ *Lirik :* ${res.lirik}`}, { quoted: m })
+  xcaa.sendMessage(m.chat, {image: bufftt, caption: `╔════⧫ *Judul :* ${res.judul}\n║ *Artis :* ${res.penyanyi}\n╚════⧫*Lirik :* ${res.lirik}`}, { quoted: m })
   } catch (err) {
   reply2(from)
   }
@@ -2369,7 +2381,7 @@ case 'ghstalk': case 'gitstalk': case 'githubstalk': {
   if (!text) return reply(`*Contoh ${prefix+command} Teks*`)
   try {
   fajr = await fetchJson(`https://api.github.com/users/${text}`)
-  xcaa.sendMessage(m.chat, { image: { url: fajr.avatar_url }, caption: `╭ Name : ${fajr.login}\n├ Id : ${fajr.id}\n├ Node Id : ${fajr.node_id}\n├ Avatar Url : ${fajr.avatar_url}\n├ Gravatar Id : ${fajr.gravatar_id}\n├ Url : ${fajr.url}\n├ Url2 : ${fajr.html_url}\n├ Followers Url : ${fajr.followers_url}\n├ Following Url : ${fajr.following_url}\n├ Gists Url : ${fajr.gists_url}\n├ Starred Url : ${fajr.starred_url}\n├ Subscriptions Url : ${fajr.subscriptions_url}\n├ Organizations Url : ${fajr.organizations_url}\n├ Repos Url : ${fajr.repos_url}\n├ Events Url : ${fajr.events_url}\n├ Received Events Url : ${fajr.received_events_url}\n├ Type : ${fajr.type}\n├ Site Admin : ${fajr.site_admin}\n├ Name : ${fajr.name}\n├ Company : ${fajr.company}\n├ Blog : ${fajr.blog}\n├ Location : ${fajr.location}\n├ Email : ${fajr.email}\n├ Hireable : ${fajr.hireable}\n├ Bio : ${fajr.bio}\n├ Twitter Username : ${fajr.twitter_username}\n├ Public Repos : ${fajr.public_repos}\n├ Public Gists : ${fajr.public_gists}\n├ Followers : ${fajr.followers}\n├ Following : ${fajr.following}\n├ Created At : ${fajr.created_at}\n└ Updated At : ${fajr.updated_at}` }, { quoted: m })
+  xcaa.sendMessage(m.chat, { image: { url: fajr.avatar_url }, caption: `╔════⧫ Name : ${fajr.login}\n║ Id : ${fajr.id}\n║ Node Id : ${fajr.node_id}\n║ Avatar Url : ${fajr.avatar_url}\n║ Gravatar Id : ${fajr.gravatar_id}\n║ Url : ${fajr.url}\n║ Url2 : ${fajr.html_url}\n║ Followers Url : ${fajr.followers_url}\n║ Following Url : ${fajr.following_url}\n║ Gists Url : ${fajr.gists_url}\n║ Starred Url : ${fajr.starred_url}\n║ Subscriptions Url : ${fajr.subscriptions_url}\n║ Organizations Url : ${fajr.organizations_url}\n║ Repos Url : ${fajr.repos_url}\n║ Events Url : ${fajr.events_url}\n║ Received Events Url : ${fajr.received_events_url}\n║ Type : ${fajr.type}\n║ Site Admin : ${fajr.site_admin}\n║ Name : ${fajr.name}\n║ Company : ${fajr.company}\n║ Blog : ${fajr.blog}\n║ Location : ${fajr.location}\n║ Email : ${fajr.email}\n║ Hireable : ${fajr.hireable}\n║ Bio : ${fajr.bio}\n║ Twitter Username : ${fajr.twitter_username}\n║ Public Repos : ${fajr.public_repos}\n║ Public Gists : ${fajr.public_gists}\n║ Followers : ${fajr.followers}\n║ Following : ${fajr.following}\n║ Created At : ${fajr.created_at}\n╚════⧫Updated At : ${fajr.updated_at}` }, { quoted: m })
   } catch (err) {
   reply2(from)
   }
@@ -2381,7 +2393,7 @@ case 'translate': case 'terjemahan': {
   tes = await fetchJson(`https://megayaa.herokuapp.com/api/translate?to=id&kata=${text}`)
   ipo = tes.info
   dtk = tes.translate
-  m.reply(`╭ Translate : ${dtk}\n└ Hasil : ${ipo}`)
+  m.reply(`╔════⧫ Translate : ${dtk}\n╚════⧫Hasil : ${ipo}`)
   } catch (err) {
   reply2(from)
   }
@@ -2750,7 +2762,7 @@ case 'jadwalsholat': {
   if (!q) return m.reply(`*Contoh ${prefix+command} Banten*`)
   try {
   kfn = await jadwalsholat(`${q}`)
-  m.reply(`╭ Kota : ${q}\n├ Tanggal : ${kfn.tanggal}\n├ Imsyak : ${kfn.imsyak}\n├ Shubuh : ${kfn.subuh}\n├ Dzuhur : ${kfn.dzuhur}\n├ Ashar : ${kfn.ashar}\n├ Magribh : ${kfn.maghrib}\n└ Isya : ${kfn.isya}`)
+  m.reply(`╔════⧫ Kota : ${q}\n║ Tanggal : ${kfn.tanggal}\n║ Imsyak : ${kfn.imsyak}\n║ Shubuh : ${kfn.subuh}\n║ Dzuhur : ${kfn.dzuhur}\n║ Ashar : ${kfn.ashar}\n║ Magribh : ${kfn.maghrib}\n╚════⧫Isya : ${kfn.isya}`)
   } catch (err) {
   reply2(from)
   }
